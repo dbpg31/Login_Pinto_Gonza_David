@@ -15,6 +15,8 @@
 <body>
 
     <div class="wrapper">
+        <div class="curved" id="curved"></div>
+
         <div class="form-wrapper sign-in">
             <form action="">
                 <h2>Iniciar Sesión</h2>
@@ -27,11 +29,11 @@
                     <label> Contraseña</label>
                 </div>
                 <div class="forgot-pass">
-                    <a href="#">¿Olvidaste tu Contraseña ?</a>                    
+                    <a href="#">¿Olvidaste tu Contraseña?</a>                    
                 </div>
                 <button type="submit">Iniciar Sesión</button>
                 <div class="sign-link">
-                    <p>¿No tienes cuenta?<a href="#">Inscribirse</a></p>
+                    <p>¿No tienes cuenta?<a href="#" onclick="activeSignUp()"> Inscribirse</a></p>
                 </div>
                 <div class="social-platform">
                     <p>O Inicia sesión con :</p>
@@ -43,6 +45,37 @@
                 </div>                
             </form>
         </div>
+
+        <div class="form-wrapper sign-up">
+            <form action="">
+                <h2>Inscribirse</h2>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label> Nombre de Usuario</label>
+                </div>
+                <div class="input-box">
+                    <input type="email" required>
+                    <label> Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label> Contraseña</label>
+                </div>                
+                <button type="submit">Inscribirse</button>
+                <div class="sign-link">
+                    <p>Ya tienes cuenta<a href="#"> Iniciar Sesión</a></p>
+                </div>                                
+            </form>
+        </div>
+
+    </div>
+
+    <div class="colors">
+        <span class="color" style="--clr:#77dd77;"></span>
+        <span class="color" style="--clr:#f67599;"></span>
+        <span class="color active" style="--clr:#976ed7;"></span>
+        <span class="color" style="--clr:#1db9c3;"></span>
+        <span class="color" style="--clr:#ffb347;"></span>
     </div>
 
     <script src="script.js"></script>
