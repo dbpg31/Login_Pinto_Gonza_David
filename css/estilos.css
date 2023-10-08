@@ -47,7 +47,8 @@ body {
 }
 
 .wrapper.activeSignUp .form-wrapper.sign-up {
-    animation: hideJellyAnimate 1s ease forwards;
+    animation: showJellyAnimate 1s ease forwards;
+    animation-delay: 1.2;
 }
 
 @keyframes hideJellyAnimate {
@@ -67,6 +68,7 @@ body {
         transform: scale(0, 0);
     }
 }
+
 
 h2 {
     font-size: 30px;
