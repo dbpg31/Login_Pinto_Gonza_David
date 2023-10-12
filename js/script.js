@@ -4,6 +4,6 @@ function activeSignUp() {
     wrapper.classList.add('activeSignUp');
 }
 
-
+console.log('hola mundo');
 
 
