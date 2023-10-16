@@ -34,4 +34,6 @@ function activeLink() {
 color.forEach((item) =>
 item.addEventListener('click',activeLink));
 
+import './firebase.js'
+
 
