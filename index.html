@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
 </head>
-
 <body>
-
     <div class="wrapper">
         <div class="bg-animate" id="bg-animate"></div>
         <div class="curved" id="curved"></div>
@@ -36,52 +33,103 @@
                 <div class="sign-link">
                     <p>¿No tienes cuenta?<a href="#" onclick= "activeSignUp()" > Inscribirse</a></p>
                 </div>
-                <div class="social-platform">
-                    <p>O Inicia sesión con :</p>
-                    <div class="social-icons">
-                        <a href="#"><i class='bx bxl-facebook'></i></a>
-                        <a href="#"><i type="button" id="googleLogin" class='bx bxl-google'></i></a>
-                        <a href="#"><i class='bx bxl-twitter'></i></a>
-                    </div>                                    
-                </div>               
-            </form>
+        <div class="social-platform">
+            <p>O Inicia sesión con :</p>
+            <div class="social-icons">
+                <a href="#" onclick="signInWithFacebook()"><i class='bx bxl-facebook'></i></a>
+                <a href="#" onclick="signInWithGoogle()"><i class='bx bxl-google'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+            </div>                                    
         </div>
+    </form>
+</div>
 
-        <div class="form-wrapper sign-up" id="signupModal">
-            <form action="" id="signup-form">
-                <h2>Inscribirse</h2>
-                <div class="input-box">
-                    <input type="text" required>
-                    <label> Nombre de Usuario</label>
-                </div>
-                <div class="input-box">
-                    <input type="email" id="signup-email" required>
-                    <label> Email</label>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="signup-password">
-                    <label> Contraseña</label>
-                </div>                
-                <button type="submit" id="registro">Inscribirse</button>
-                <div class="sign-link">
-                    <p>¿Ya tienes cuenta? <a href="#" onclick= "activeSignIn()"> Iniciar Sesión</a></p>
-                </div>                                
-            </form>
+<div class="form-wrapper sign-up" id="signupModal">
+    <form action="" id="signup-form">
+        <h2>Inscribirse</h2>
+        <div class="input-box">
+            <input type="text" required>
+            <label> Nombre de Usuario</label>
         </div>
+        <div class="input-box">
+            <input type="email" id="signup-email" required>
+            <label> Email</label>
+        </div>
+        <div class="input-box">
+            <input type="password" id="signup-password">
+            <label> Contraseña</label>
+        </div>                
+        <button type="submit" id="registro">Inscribirse</button>
+        <div class="sign-link">
+            <p>¿Ya tienes cuenta? <a href="#" onclick= "activeSignIn()"> Iniciar Sesión</a></p>
+        </div>                                
+    </form>
+</div>
 
-    </div>
+</div>
 
-    <div class="colors">
-        <span onclick="changeColor('#77dd77')" class="color" style="--clr:#77dd77;"></span>
-        <span onclick="changeColor('#f67599')" class="color" style="--clr:#f67599;"></span>
-        <span onclick="changeColor('#976ed7')" class="color active" style="--clr:#976ed7;"></span>
-        <span onclick="changeColor('#1db9c3')" class="color" style="--clr:#1db9c3;"></span>
-        <span onclick="changeColor('#ffb347')" class="color" style="--clr:#ffb347;"></span>
-        <script type="module" src="js/firebase.js"></script>
-    </div>
+<div class="colors">
+<span onclick="changeColor('#77dd77')" class="color" style="--clr:#77dd77;"></span>
+<span onclick="changeColor('#f67599')" class="color" style="--clr:#f67599;"></span>
+<span onclick="changeColor('#976ed7')" class="color active" style="--clr:#976ed7;"></span>
+<span onclick="changeColor('#1db9c3')" class="color" style="--clr:#1db9c3;"></span>
+<span onclick="changeColor('#ffb347')" class="color" style="--clr:#ffb347;"></span>
+<script type="module" src="js/firebase.js"></script>
+</div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+        
+        var firebaseConfig = {
+            apiKey: "AIzaSyA6qz_vTBpGd3TeXChxbsRy30K5UuHGWJI",
+            authDomain: "login-app-d4507.firebaseapp.com",
+            projectId: "login-app-d4507",
+            storageBucket: "login-app-d4507.appspot.com",
+            messagingSenderId: "1031161775954",
+            appId: "1:1031161775954:web:c9d8f9ce8b39b99eba9c8b"
+        };
+        firebase.initializeApp(firebaseConfig);
 
+        function signInWithGoogle() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider)
+                .then(function(result) {
+                    
+                    var user = result.user;
+                    console.log(user);
+                })
+                .catch(function(error) {
+                 
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                });
+        };
 
+        function signInWithFacebook() {
+            var provider = new firebase.auth.FacebookAuthProvider();
+            firebase.auth().signInWithPopup(provider)
+                .then(function(result) {
+                    
+                    var user = result.user;
+                    console.log(user);
+                })
+                .catch(function(error) {
+                 
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorCode, errorMessage);
+                });
+        };
+
+    </script>
+   <!--http://localhost:5500/index.html# -->
+        
     <script src="js/script.js"></script>
-    
 </body>
 </html>
+
+<!--http://localhost:5500/index.html# -->
+
+
+
