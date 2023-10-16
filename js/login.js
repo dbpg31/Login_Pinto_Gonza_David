@@ -49,7 +49,7 @@ registro.addEventListener('submit', async (e) => {
 
 // login
 
-login.addEventListener('submit', async (e) {
+login.addEventListener('submit', async (e) => {
     var email = document.getElementById('login-email').value;
     var password = document.getElementById('login-password').value;
 
@@ -84,7 +84,7 @@ login.addEventListener('submit', async (e) {
     }
 
   });
-
+/*
 
 const signupForm = document.querySelector('#signup-form')
 
